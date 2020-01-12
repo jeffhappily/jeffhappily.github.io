@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hi, ma name is Jeff.
+Hi, I'm Jeff.
 
-This is my personal blog, I write articles to learn more, feel free to create issue if you think I wrote something wrong.
+I'm fairly new in both programming and writing. I'm interested in Programming Language Theory, especially Type Theory and Program Analysis. I wish I could keep learning, and share the progress through writing.
 
