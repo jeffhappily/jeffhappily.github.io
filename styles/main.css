@@ -1,0 +1,140 @@
+.main {
+    width: 100%;
+    padding: 60px 0;
+    margin-top: 40px;
+    position: relative;
+}
+.main a[href="#contact"] {
+    text-decoration: none;
+}
+.main a[href="#contact"]:hover, .main a[href="#contact"]:active, .main a[href="#contact"]:visited {
+    text-decoration: none;
+}
+.main a[href="#contact"]:visited {
+    color: white;
+}
+.main__content {
+    text-align: left;
+    position: relative;
+    /* max-width: 60vw; */
+    margin: 0 auto;
+    color: #ede574;
+}
+.main__content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+.main__content p {
+    line-height: 30px;
+    margin-top: 30px;
+    max-width: 580px;
+}
+@media screen and (max-width: 768px) {
+    .main__content {
+        margin: 0;
+        max-width: none;
+    }
+    .main__content h1,
+    .main__content p {
+        padding: 0 15px;
+   }
+}
+@media screen and (max-width: 470px) {
+    .main {
+        margin-top: 0;
+   }
+    .main__content h1 {
+        font-size: 8.5vw;
+   }
+}
+
+.mynavbar {
+    width: 100%;
+    height: auto;
+    padding: 28px 0;
+}
+.mynavbar__list {
+    float: right;
+    display: flex;
+    justify-content: space-between;
+}
+.mynavbar__list li {
+    display: block;
+    list-style-type: none;
+    margin-left: 12px;
+}
+.mynavbar__list a {
+    color: inherit;
+    padding: 15px;
+    display: block;
+}
+.mynavbar__list a:hover {
+    color: #ff4e50;
+}
+#logo {
+    float: left;
+    height: 40px;
+    z-index: 2;
+}
+#logo img {
+    height: 100%;
+    transition: 0.1s;
+    z-index: 2;
+}
+#logo img:hover {
+    opacity: 0.7;
+}
+@media screen and (max-width: 470px) {
+    #logo {
+        height: 45px;
+        float: none;
+   }
+    #logo img {
+        display: block;
+        margin: 0 auto;
+   }
+    .mynavbar__list {
+        float: none;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: space-around;
+   }
+}
+
+footer {
+    padding-top: 48px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+.social img {
+    margin: 15px;
+    width: 40px;
+    height: 40px;
+}
+.copyright {
+    font-size: 11px;
+    color: #888282;
+    padding: 15px;
+    text-align: center;
+}
+
+code {
+    font-family: monospace;
+    background: #f2f2f2;
+    padding: 20px;
+    margin: 20px 0;
+    display: block;
+    border-radius: 2px;
+    text-align: left;
+    white-space: pre;
+}
