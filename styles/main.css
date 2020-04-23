@@ -1,17 +1,8 @@
-.main {
+main {
     width: 100%;
-    padding: 60px 0;
-    margin-top: 40px;
+    /* padding: 60px 0; */
+    margin: 80px 0 80px;
     position: relative;
-}
-.main a[href="#contact"] {
-    text-decoration: none;
-}
-.main a[href="#contact"]:hover, .main a[href="#contact"]:active, .main a[href="#contact"]:visited {
-    text-decoration: none;
-}
-.main a[href="#contact"]:visited {
-    color: white;
 }
 .main__content {
     text-align: left;
