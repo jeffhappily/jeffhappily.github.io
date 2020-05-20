@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v1
     - uses: mstksg/get-package@v1
-    - name: Build
+      name: Build
       run: |
         stack build
         git status
