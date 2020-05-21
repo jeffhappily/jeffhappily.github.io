@@ -12,8 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: mstksg/get-package@v1
-    - name: Build
+    - name: Build static files
       run: |
         stack build
-        git status
+        stack exec site build
+    - name: Push Changes
+      run: |
+        cp -a _site/. .
+        git add -A
+        git commit -m "Publish."
+        git push origin develop
 
