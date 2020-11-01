@@ -71,6 +71,11 @@ a:hover, a:active, a:focus {
 /* close commented backslash hack */
 
 @media (min-width: 768px) {
+  h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
   .container {
      width: 750px;
   }
@@ -83,6 +88,14 @@ a:hover, a:active, a:focus {
 }
 
 @media (min-width: 1200px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2.4em;
+  }
+
   .container {
      width: 1170px;
   }
@@ -173,3 +186,8 @@ a:hover, a:active, a:focus {
   }
 }
 /* Navbar ends */
+
+section.about {
+  max-width: 800px;
+  text-align: justify;
+}
