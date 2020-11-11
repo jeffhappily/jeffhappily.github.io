@@ -1,0 +1,35 @@
+.post-list {
+    list-style-type: none;
+}
+
+.post-list-item {
+    margin-bottom: 30px;
+}
+
+.post-list-date {
+    color: rgb(118, 118, 118);
+}
+
+.post-list-title {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.tag {
+    font-weight: 400;
+    color: #212529;
+    background-color: #ebedef;
+    padding: .25em .4em;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.tag.tag-lg {
+    font-size: 125%;
+}
