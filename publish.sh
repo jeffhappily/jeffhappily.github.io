@@ -5,6 +5,9 @@ set -eux
 # Verify correct branch
 git checkout develop
 
+# Build new binary
+stack build
+
 # Build new files
 stack exec site clean
 stack exec site build
