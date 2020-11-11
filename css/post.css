@@ -1,5 +1,5 @@
 code {
-    font-family: monospace;
+    font-family: 'Iosevka Web';
 }
 
 /* Syntax highlighting */
@@ -94,7 +94,7 @@ div.sourceCode {}
 }
 
 code span {
-    font-family: monospace;
+    font-family: 'Iosevka Web';
     font-size: 18px;
 }
 
@@ -286,3 +286,14 @@ code span.wa {
     margin: 0 auto;
 }
 
+blockquote {
+    border-left: 10px solid #ccc;
+    margin: 2em 0;
+    padding: 0.8em 1.6em;
+}
+
+blockquote p {
+    display: inline;
+    font-style: italic;
+    color: #555;
+}
