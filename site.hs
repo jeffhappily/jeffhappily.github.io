@@ -20,7 +20,7 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    matchMetadata "posts/*" (\m -> lookupString "draft" m /= Just "true") $ do
+    match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx

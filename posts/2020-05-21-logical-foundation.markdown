@@ -1,6 +1,6 @@
 ---
-title: (WIP) Logical Foundation
-# draft: true
+title: Logical Foundation
+draft: true
 ---
 
 I've been reading the book [Logical Foundation](https://softwarefoundations.cis.upenn.edu/lf-current/) and I'm writing this post to summarize what I've learned and to keep track of my learning progress.

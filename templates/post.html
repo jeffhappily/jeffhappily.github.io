@@ -1,6 +1,11 @@
 <article class="blog-post">
     <section class="header">
-        <h1>$title$</h1>
+        $if(draft)$
+            <span class="tag tag-lg">Draft</span>
+        $endif$
+        <h1>
+            $title$
+        </h1>
         Posted on $date$
     </section>
     <section>
