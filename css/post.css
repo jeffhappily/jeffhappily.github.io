@@ -1,5 +1,6 @@
 code {
     font-family: 'Iosevka Web';
+    font-size: 18px;
 }
 
 /* Syntax highlighting */
@@ -25,6 +26,9 @@ a.sourceLine:empty {
 code.sourceCode {
     white-space: pre;
     position: relative;
+    background: #f4f4f4;
+    padding: 15px;
+    display: inline-block;
 }
 
 div.sourceCode {
@@ -33,9 +37,7 @@ div.sourceCode {
 
 pre.sourceCode {
     margin: 0;
-    background: #f4f4f4;
     border-radius: 6px;
-    padding: 15px;
 }
 
 @media screen {
@@ -96,6 +98,7 @@ div.sourceCode {}
 code span {
     font-family: 'Iosevka Web';
     font-size: 18px;
+    line-height: 1.7;
 }
 
 code span.al {
