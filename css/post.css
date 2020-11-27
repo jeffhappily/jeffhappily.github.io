@@ -29,6 +29,8 @@ code.sourceCode {
     background: #f4f4f4;
     padding: 15px;
     display: inline-block;
+    min-width: 100%;
+    box-sizing: border-box;
 }
 
 div.sourceCode {
@@ -297,6 +299,10 @@ blockquote {
 
 blockquote p {
     display: inline;
-    font-style: italic;
     color: #555;
+}
+
+.blog-post h2,
+.blog-post h3 {
+    margin-top: 2em;
 }
