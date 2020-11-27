@@ -76,7 +76,6 @@ a:hover, a:active, a:focus {
 @media (min-width: 768px) {
   h1 {
     font-size: 2em;
-    margin-bottom: 30px;
   }
 
   .container {

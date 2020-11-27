@@ -1,6 +1,7 @@
 code {
     font-family: 'Iosevka Web';
-    font-size: 18px;
+    font-size: 20px;
+    padding: 0 6px;
 }
 
 /* Syntax highlighting */
@@ -302,7 +303,13 @@ blockquote p {
     color: #555;
 }
 
+.blog-post h1,
 .blog-post h2,
 .blog-post h3 {
-    margin-top: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1.title {
+    margin-top: 0;
 }

@@ -7,14 +7,12 @@ I've been reading the book [Logical Foundation](https://softwarefoundations.cis.
 
 Logical Foundation is an introductory book to the Logic and Mathematics behind Computer Science, and the whole book uses Coq, the proof assistant to convey its idea. A proof assistant is essentially a programming language with extra tools to help you state and prove your logical assertions.
 
-# Intro to Coq
+# Datatype
+Let's start with the programming language part of Coq, Coq includes a functional programming language called *Gallina*. It provides the familiar building blocks simliar to other functional programming language such as *algebraic data type* and *pattern matching*.
 
-## Datatype
-Let's start with defining some data type in Coq, since it's the most basic construct of a programming language.
+You can use the `Inductive` keyword to define a simple inductive type, if you don't know what an inductive type is, it's an one-of type, think of it as a sum type, a tagged union or an enum.
 
-You can use the `Inductive` keyword to define a simple inductive type, if you don't know what an inductive type is, think of it as a sum type, a tagged union or an enum.
-
-Here's an inductive type called `day` representing all the days in a week.
+Here's an simple example taken from *Logical Fondation*, it defines an inductive type called `day` representing all of the days in a week.
 <!-- TODO fix this, supposed to be coq -->
 ``` haskell 
 Inductive day : Type :=
@@ -26,3 +24,31 @@ Inductive day : Type :=
   | saturday
   | sunday.
 ```
+
+To operate on this newly defined data type, we can define a function using the `Definition` keyword.
+
+``` haskell
+Definition next_weekday (d:day) : day :=
+  match d with
+  | monday ⇒ tuesday
+  | tuesday ⇒ wednesday
+  | wednesday ⇒ thursday
+  | thursday ⇒ friday
+  | friday ⇒ monday
+  | saturday ⇒ monday
+  | sunday ⇒ monday
+  end.
+```
+
+This a simple function called `next_weekday` that takes in a `day` as an argument and returns a `day` type, what it does is simply pattern matches on the given `d` and returns the next weekday.
+
+Note that in this example, the types are annotated properly although they are not required as Coq can do *type inference* based on your definition. But in general, it's a good style to include your type in to help the compiler and to serve as a documentation.
+
+We can evaluate the function by using `Compute`.
+
+``` haskell
+Compute (next_weekday friday).
+-- (* ==> monday : day *)
+```
+
+# Assertion and Proof
