@@ -14,7 +14,7 @@ You can use the `Inductive` keyword to define a simple inductive type, if you do
 
 Here's an simple example taken from *Logical Fondation*, it defines an inductive type called `day` representing all of the days in a week.
 <!-- TODO fix this, supposed to be coq -->
-``` haskell 
+``` haskell
 Inductive day : Type :=
   | monday
   | tuesday
@@ -30,13 +30,13 @@ To operate on this newly defined data type, we can define a function using the `
 ``` haskell
 Definition next_weekday (d:day) : day :=
   match d with
-  | monday ⇒ tuesday
-  | tuesday ⇒ wednesday
-  | wednesday ⇒ thursday
-  | thursday ⇒ friday
-  | friday ⇒ monday
-  | saturday ⇒ monday
-  | sunday ⇒ monday
+  | monday => tuesday
+  | tuesday => wednesday
+  | wednesday => thursday
+  | thursday => friday
+  | friday => monday
+  | saturday => monday
+  | sunday => monday
   end.
 ```
 
