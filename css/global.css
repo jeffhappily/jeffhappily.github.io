@@ -1,27 +1,34 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-  
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   color: #303a3e;
 }
 
 body {
   position: relative;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #090707;
 }
 
 p {
   font-size: 16px;
   line-height: 1.6em;
+  font-family: Georgia, serif;
 }
 
 @media (min-width: 1200px) {
   p {
-     font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -36,7 +43,9 @@ a:hover {
   color: #ff4e50;
 }
 
-a:hover, a:active, a:focus {
+a:hover,
+a:active,
+a:focus {
   text-decoration: none;
 }
 
@@ -65,19 +74,23 @@ a:hover, a:active, a:focus {
 
 /* close commented backslash hack */
 
+h1 {
+  font-size: 2em;
+}
+
 @media (min-width: 768px) {
-  h1 {
-    font-size: 2em;
+  .container {
+    width: 750px;
   }
 
-  .container {
-     width: 750px;
+  h2 {
+    font-size: 1.7em;
   }
 }
 
 @media (min-width: 992px) {
   .container {
-     width: 970px;
+    width: 970px;
   }
 }
 
@@ -90,8 +103,12 @@ a:hover, a:active, a:focus {
     font-size: 2.4em;
   }
 
+  h3 {
+    font-size: 1.8em;
+  }
+
   .container {
-     width: 1170px;
+    width: 1170px;
   }
 }
 
@@ -114,21 +131,26 @@ a:hover, a:active, a:focus {
   color: #f37813;
 }
 
+.navbar {
+  padding-top: 28px;
+  width: 100%;
+  height: auto;
+}
+
 /* Navbar */
 .navbar__list {
-  position: absolute;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  bottom: -40px;
+  bottom: 0;
   left: 50%;
-  transform: translateY(100%) translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .navbar__list li {
   display: block;
   list-style-type: none;
-  margin-left: 12px;
+  margin: 0 6px;
 }
 
 .navbar__list a {
@@ -142,41 +164,32 @@ a:hover, a:active, a:focus {
 }
 
 #logo {
-  display: none;
+  float: left;
+  height: 40px;
+  z-index: 2;
+  display: block;
+}
+
+#logo img {
+  height: 100%;
+  transition: 0.1s;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
-  .navbar {
-      width: 100%;
-      height: auto;
-      padding-top: 28px;
-      /* display: none;
-      display: block; */
-  }
-  
   .navbar__list {
-      float: right;
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
+    float: right;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
   }
-  
+
   #logo {
-      float: left;
-      height: 40px;
-      z-index: 2;
-      display: block;
-  }
-
-  #logo img {
-      height: 100%;
-      transition: 0.1s;
-      z-index: 2;
-  }
-
-  #logo img:hover {
-      opacity: 0.7;
+    float: left;
+    height: 40px;
+    z-index: 2;
+    display: block;
   }
 }
 /* Navbar ends */
