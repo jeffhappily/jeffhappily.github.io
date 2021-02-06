@@ -16,6 +16,9 @@ stack exec site build
 git fetch --all
 git checkout -b master --track origin/master
 
+# Make master up-to-date
+git pull origin develop
+
 # Overwrite existing files with new files
 cp -a _site/. .
 
