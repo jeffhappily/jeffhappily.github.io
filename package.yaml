@@ -1,0 +1,23 @@
+name: jeffhappily-github-io
+version: 0.1.0.0
+github: "jeffhappily/jeffhappily.github.io"
+license: BSD3
+author: "Cheah Jer Fei"
+maintainer: "goodboy96@live.com.my"
+copyright: ! 'Copyright: (c) 2019-2020 Cheah Jer Fei'
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+
+executables:
+  site:
+    main:                site.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hakyll

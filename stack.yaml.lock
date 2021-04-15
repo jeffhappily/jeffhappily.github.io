@@ -3,10 +3,21 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    size: 372566
+    url: https://github.com/jaspervdj/hakyll/archive/a35e1c35b138c2a25b27c05936a6bb95f5f3d9e6.tar.gz
+    name: hakyll
+    version: 4.14.0.0
+    sha256: 6bebf556c5150b15f419d8fb3a183eafa223a9a0e7eac625636b0a6c8438e582
+    pantry-tree:
+      size: 12191
+      sha256: 0af11d2c99340f69dcf807b02f982cc6434ce09b2ea6c61b6cb8a8fe16cd94a9
+  original:
+    url: https://github.com/jaspervdj/hakyll/archive/a35e1c35b138c2a25b27c05936a6bb95f5f3d9e6.tar.gz
 snapshots:
 - completed:
-    size: 534126
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/31.yaml
-    sha256: 637fb77049b25560622a224845b7acfe81a09fdb6a96a3c75997a10b651667f6
-  original: lts-16.31
+    size: 567037
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/9.yaml
+    sha256: d7d8d5106e53d1669964bd8bd2b0f88a5ad192d772f5376384b76738fd992311
+  original: lts-17.9
