@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Jeff Cheah - Logical Foundation</title>
+        <!-- <link rel="shortcut icon" type="image/x.ico" href="./images/favicon.ico" /> -->
+        <link href="https://pvinis.github.io/iosevka-webfont/3.4.1/iosevka.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/global.css" />
+        <link rel="stylesheet" href="../css/main.css" />
+        <link rel="stylesheet" href="../css/post.css" />
+        <link rel="stylesheet" href="../css/post-list.css" />
+    </head>
+    <body>
+      <header>
+        <div class="container">
+          <nav class="navbar">
+            <div id="logo">
+              <a href="../"><img src="../images/logo.png" " alt=" Logo" /></a>
+            </div>
+            <ul class="navbar__list">
+              <li><a href="../about.html">About</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/jer-fei-cheah-98b06b109">LinkedIn</a></li>
+              <li><a target="_blank" href="https://github.com/jeffhappily">GitHub</a></li>
+              <li><a target="_blank" href="https://resume-jeffhappily.s3.amazonaws.com/jeff.pdf">Resume</a></a></li>
+            </ul>
+    
+          </nav>
+        </div>
+      </header>
+      <div class="clearfix"></div>
+        <main role="main">
+            <!-- <h1>Logical Foundation</h1> -->
+            <div class="container">
+              <article class="blog-post">
+    <section class="header">
+        
+            <span class="tag tag-lg">Draft</span>
+        
+        <h1 class="title">
+            Logical Foundation
+        </h1>
+        Posted on May 21, 2020
+    </section>
+    <section>
+        <p>I’ve been reading the book <a href="https://softwarefoundations.cis.upenn.edu/lf-current/">Logical Foundation</a> and I’m writing this post to summarize what I’ve learned and to keep track of my learning progress.</p>
+<p>Logical Foundation is an introductory book to the Logic and Mathematics behind Computer Science, and the whole book uses Coq, the proof assistant to convey its idea. A proof assistant is essentially a programming language with extra tools to help you state and prove your logical assertions.</p>
+<h1 id="datatype">Datatype</h1>
+<p>Let’s start with the programming language part of Coq, Coq includes a functional programming language called <em>Gallina</em>. It provides the familiar building blocks simliar to other functional programming language such as <em>algebraic data type</em> and <em>pattern matching</em>.</p>
+<p>You can use the <code>Inductive</code> keyword to define a simple inductive type, if you don’t know what an inductive type is, it’s an one-of type, think of it as a sum type, a tagged union or an enum.</p>
+<p>Here’s an simple example taken from <em>Logical Fondation</em>, it defines an inductive type called <code>day</code> representing all of the days in a week. <!-- TODO fix this, supposed to be coq --></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">Inductive</span> day <span class="op">:</span> <span class="dt">Type</span> <span class="op">:=</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="op">|</span> monday</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="op">|</span> tuesday</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  <span class="op">|</span> wednesday</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="op">|</span> thursday</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="op">|</span> friday</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>  <span class="op">|</span> saturday</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>  <span class="op">|</span> sunday<span class="op">.</span></span></code></pre></div>
+<p>To operate on this newly defined data type, we can define a function using the <code>Definition</code> keyword.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">Definition</span> next_weekday (d<span class="op">:</span>day) <span class="op">:</span> day <span class="op">:=</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  match d with</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="op">|</span> monday <span class="ot">=&gt;</span> tuesday</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  <span class="op">|</span> tuesday <span class="ot">=&gt;</span> wednesday</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  <span class="op">|</span> wednesday <span class="ot">=&gt;</span> thursday</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  <span class="op">|</span> thursday <span class="ot">=&gt;</span> friday</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>  <span class="op">|</span> friday <span class="ot">=&gt;</span> monday</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>  <span class="op">|</span> saturday <span class="ot">=&gt;</span> monday</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>  <span class="op">|</span> sunday <span class="ot">=&gt;</span> monday</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>  end<span class="op">.</span></span></code></pre></div>
+<p>This a simple function called <code>next_weekday</code> that takes in a <code>day</code> as an argument and returns a <code>day</code> type, what it does is simply pattern matches on the given <code>d</code> and returns the next weekday.</p>
+<p>Note that in this example, the types are annotated properly although they are not required as Coq can do <em>type inference</em> based on your definition. But in general, it’s a good style to include your type in to help the compiler and to serve as a documentation.</p>
+<p>We can evaluate the function by using <code>Compute</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">Compute</span> (next_weekday friday)<span class="op">.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">-- (* ==&gt; monday : day *)</span></span></code></pre></div>
+<h1 id="assertion-and-proof">Assertion and Proof</h1>
+    </section>
+</article>
+
+            </div>
+        </main>
+
+        <!-- <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer> -->
+    </body>
+</html>

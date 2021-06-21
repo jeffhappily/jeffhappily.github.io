@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Jeff Cheah - Scheme Learning Notes</title>
+        <!-- <link rel="shortcut icon" type="image/x.ico" href="./images/favicon.ico" /> -->
+        <link href="https://pvinis.github.io/iosevka-webfont/3.4.1/iosevka.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../css/global.css" />
+        <link rel="stylesheet" href="../css/main.css" />
+        <link rel="stylesheet" href="../css/post.css" />
+        <link rel="stylesheet" href="../css/post-list.css" />
+    </head>
+    <body>
+      <header>
+        <div class="container">
+          <nav class="navbar">
+            <div id="logo">
+              <a href="../"><img src="../images/logo.png" " alt=" Logo" /></a>
+            </div>
+            <ul class="navbar__list">
+              <li><a href="../about.html">About</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/in/jer-fei-cheah-98b06b109">LinkedIn</a></li>
+              <li><a target="_blank" href="https://github.com/jeffhappily">GitHub</a></li>
+              <li><a target="_blank" href="https://resume-jeffhappily.s3.amazonaws.com/jeff.pdf">Resume</a></a></li>
+            </ul>
+    
+          </nav>
+        </div>
+      </header>
+      <div class="clearfix"></div>
+        <main role="main">
+            <!-- <h1>Scheme Learning Notes</h1> -->
+            <div class="container">
+              <article class="blog-post">
+    <section class="header">
+        
+            <span class="tag tag-lg">Draft</span>
+        
+        <h1 class="title">
+            Scheme Learning Notes
+        </h1>
+        Posted on February 23, 2019
+    </section>
+    <section>
+        <p>Scheme is a programming language, and it’s a dialect of a programming language called Lisp. Lisp is one of the two oldest programming languages that is still widely used today.</p>
+<h2 id="expression">Expression</h2>
+<p>Scheme is composed of expression, which is a construct that returns a value.</p>
+<h3 id="primitive-expression">Primitive Expression</h3>
+<p>Primitive is just a set of values of different data types. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">; Number</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="dv">1</span>       <span class="co">; integer</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="fl">2.0</span>     <span class="co">; real</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="dv">3</span>/<span class="dv">4</span>     <span class="co">; rational</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="co">; Symbol</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>x</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>abc</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="co">; Boolean</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="dv">#t</span>      <span class="co">; true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>true    <span class="co">; true</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="dv">#f</span>      <span class="co">; false</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>false   <span class="co">; false</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="co">; String</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="st">&quot;hello&quot;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="co">; Character</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="ch">#\c</span>     <span class="co">; character 'c'</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="ch">#\A</span>     <span class="co">; character 'A'</span></span></code></pre></div>
+<h3 id="combination">Combination</h3>
+<p>Expressions can be combined with operators to form a combination. A combination is surrounded by brackets, and it’s also known as <code>s-expression</code>.</p>
+<p>The most common combination is a call expression, which includes an operator and followed by 0 or more operands. Nesting and line breaks are allowed in call expressions.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>(<span class="op">+</span> (* <span class="dv">3</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>      (<span class="op">+</span> (* <span class="dv">2</span> <span class="dv">4</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>         (<span class="op">+</span> <span class="dv">3</span> <span class="dv">5</span>)))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>   (<span class="op">+</span> (<span class="op">-</span> <span class="dv">10</span> <span class="dv">7</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>      <span class="dv">6</span>))           <span class="co">; 57</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>(<span class="kw">quotient</span> <span class="dv">10</span> <span class="dv">2</span>)     <span class="co">; 5</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>(<span class="kw">not</span> <span class="dv">#t</span>)            <span class="co">; #f</span></span></code></pre></div>
+<h2 id="special-forms">Special Forms</h2>
+<p>A special form is a combination that is not a call expression, it has the same syntax but comes with special rules.</p>
+<h3 id="comparison-operator">Comparison Operator</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>(<span class="op">&gt;=</span> <span class="dv">3</span> <span class="dv">2</span>)                <span class="co">; #f</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>(<span class="op">&lt;</span> <span class="dv">5</span> <span class="dv">12</span>)                <span class="co">; #t</span></span></code></pre></div>
+<h3 id="if-expression">If expression</h3>
+<p>If expression are expressed in following form:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>(<span class="kw">if</span> &lt;predicate&gt; &lt;consequent&gt; &lt;alternative&gt;)</span></code></pre></div>
+<p>The interpreter starts by evaluating the <strong>&lt;predicate&gt;</strong> part, if it evaluates to a <strong>true</strong> value, <strong>&lt;consequent&gt;</strong> will be evaluated, otherwise <strong>&lt;alternative&gt;</strong> will be evaluated and the resulting value will be returned.</p>
+<h3 id="boolean-operator">Boolean Operator</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>(<span class="kw">and</span> &lt;e1&gt; ... &lt;en&gt;)</span></code></pre></div>
+<p>Short circuiting is supported in Scheme, which means expression <strong>&lt;e&gt;</strong>’s will be evaluated from left to right. If any <strong>&lt;e&gt;</strong> evaluates to <strong>false</strong>, <strong>false</strong> value is returned and the rest of the <strong>&lt;e&gt;</strong>’s will not be evaluated. If no <strong>false</strong> value is found, the value of the last element is returned.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>(<span class="kw">or</span> &lt;e1&gt; ... &lt;en&gt;)</span></code></pre></div>
+<p><code>Or</code> operator is similar to <code>and</code> operator, the interpreter evaluates the <strong>&lt;e&gt;’s</strong> from left to right. The difference is that once an <strong>&lt;e&gt;</strong> evaluates to <strong>true</strong>, the value is returned and the rest of the <strong>&lt;e&gt;</strong>’s will not be evaluated. If no <strong>true</strong> value is found, a <strong>false</strong> value is returned.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>(<span class="kw">not</span> &lt;e&gt;)</span></code></pre></div>
+<p><code>Not</code> expression evaluates to <strong>true</strong> when the expression <strong>&lt;e&gt;</strong> evaluates to <strong>false</strong>, and <strong>false</strong> otherwise.</p>
+<h3 id="definition">Definition</h3>
+<p>A definition binds a value to a symbol.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>(<span class="ex">define</span><span class="fu"> a </span><span class="dv">1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a>(* a <span class="dv">2</span>)       <span class="co">; 2</span></span></code></pre></div>
+<p>Procedures can also be defined using define, in a slightly different form.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>(<span class="ex">define</span><span class="fu"> </span>(&lt;name&gt; &lt;formal parameters&gt;) &lt;body&gt;)</span></code></pre></div>
+<p>For example, a square procedure can be defined as following</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a>(<span class="ex">define</span><span class="fu"> </span>(square x) (* x x))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>(square <span class="dv">12</span>)     <span class="co">; 144</span></span></code></pre></div>
+<h3 id="lambda-expression">Lambda Expression</h3>
+<p>Lambda is a special kind of procedure. It behaves exactly like a procedure that is created using <strong>define</strong>, except that it has no name.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a>(<span class="kw">lambda</span> (&lt;formal parameters&gt;) &lt;body&gt;)</span></code></pre></div>
+<p>Lambda expression can be used for procedure definition, the following expressions are equivalent.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a>(<span class="ex">define</span><span class="fu"> </span>(square x) (* x x))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>(<span class="ex">define</span><span class="fu"> square </span>(<span class="kw">lambda</span> (x) (* x x)))</span></code></pre></div>
+<p>Lambda expression can also be used as the operator in a call expression.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>((<span class="kw">lambda</span> (x) (* x x)) <span class="dv">6</span>)      <span class="co">; 36</span></span></code></pre></div>
+<h2 id="pair-and-lists">Pair and Lists</h2>
+    </section>
+</article>
+
+            </div>
+        </main>
+
+        <!-- <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer> -->
+    </body>
+</html>
