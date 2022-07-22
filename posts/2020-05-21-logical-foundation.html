@@ -49,7 +49,8 @@
 <h1 id="datatype">Datatype</h1>
 <p>Let’s start with the programming language part of Coq, Coq includes a functional programming language called <em>Gallina</em>. It provides the familiar building blocks simliar to other functional programming language such as <em>algebraic data type</em> and <em>pattern matching</em>.</p>
 <p>You can use the <code>Inductive</code> keyword to define a simple inductive type, if you don’t know what an inductive type is, it’s an one-of type, think of it as a sum type, a tagged union or an enum.</p>
-<p>Here’s an simple example taken from <em>Logical Fondation</em>, it defines an inductive type called <code>day</code> representing all of the days in a week. <!-- TODO fix this, supposed to be coq --></p>
+<p>Here’s an simple example taken from <em>Logical Fondation</em>, it defines an inductive type called <code>day</code> representing all of the days in a week.</p>
+<!-- TODO fix this, supposed to be coq -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="dt">Inductive</span> day <span class="op">:</span> <span class="dt">Type</span> <span class="op">:=</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="op">|</span> monday</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="op">|</span> tuesday</span>
@@ -75,6 +76,7 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="dt">Compute</span> (next_weekday friday)<span class="op">.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">-- (* ==&gt; monday : day *)</span></span></code></pre></div>
 <h1 id="assertion-and-proof">Assertion and Proof</h1>
+<p>TODO</p>
     </section>
 </article>
 
