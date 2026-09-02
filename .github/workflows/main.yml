@@ -1,32 +1,69 @@
-name: Build & Deploy
+name: Build and deploy Hakyll site
 
 on:
   push:
-    branches: master
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: read
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v7
 
-      - name: Cache stack folder
-        id: stack
-        uses: actions/cache@v2.1.4
+      - name: Set up Haskell
+        uses: haskell-actions/setup@v2
         with:
-          path: ~/.stack
-          key: ${{ runner.os }}-stack
-          restore-keys: ${{ runner.os }}-stack
-        
-      - name: Build binary
-        run: stack build
-        
-      - name: Build website
-        run: stack exec site build
+          ghc-version: '9.10.3'
+          enable-stack: true
+          stack-version: latest
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Restore Stack cache
+        uses: actions/cache@v5
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: _site # The folder the action should deploy.
+          path: |
+            ~/.stack
+            .stack-work
+          key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml.lock', '*.cabal') }}
+          restore-keys: |
+            ${{ runner.os }}-stack-
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Build site
+        run: |
+          stack --system-ghc build
+          stack --system-ghc exec site -- clean
+          stack --system-ghc exec site -- build
+          stack --system-ghc exec site -- check --internal-links
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
