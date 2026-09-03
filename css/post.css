@@ -1,6 +1,6 @@
 code {
   font-family: monospace;
-  font-size: 18px;
+  font-size: 0.85em;
   background: #e5eff5;
   padding: 0 5px 2px;
   border-radius: 3px;
@@ -103,7 +103,7 @@ div.sourceCode {
 
 code span {
   font-family: monospace;
-  font-size: 16px;
+  font-size: var(--text-sm);
   line-height: 1.5;
 }
 
@@ -295,14 +295,8 @@ code span.wa {
 /* Syntax highlighting ends */
 
 .blog-post {
-  max-width: 800px;
+  max-width: var(--column);
   margin: 0 auto;
-}
-
-.blog-post p,
-.blog-post em,
-.blog-post a {
-  font-family: Georgia, serif;
 }
 
 blockquote {
@@ -323,6 +317,39 @@ blockquote p {
   margin-bottom: 0.5em;
 }
 
+.post-header {
+  margin-bottom: 40px;
+}
+
+.post-meta {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.post-meta .tag {
+  margin-left: 6px;
+}
+
 h1.title {
   margin-top: 0;
+  line-height: 1.2;
+}
+
+.post-footer {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid #ececec;
+  font-size: var(--text-sm);
+}
+
+.post-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.post-footer a:hover {
+  color: var(--red);
 }

@@ -1,14 +1,17 @@
 <article class="blog-post">
-    <section class="header">
-        $if(draft)$
-            <span class="tag tag-lg">Draft</span>
-        $endif$
-        <h1 class="title">
-            $title$
-        </h1>
-        Posted on $date$
-    </section>
-    <section>
+    <header class="post-header">
+        <p class="post-meta">
+            $date$
+            $if(draft)$
+                <span class="tag">Draft</span>
+            $endif$
+        </p>
+        <h1 class="title">$title$</h1>
+    </header>
+    <section class="post-body">
         $body$
     </section>
+    <footer class="post-footer">
+        <a href="$backUrl$">&larr; $backLabel$</a>
+    </footer>
 </article>

@@ -1,19 +1,33 @@
 .post-list {
-    list-style-type: none;
-    margin-top: 2em;
+    list-style: none;
+    margin-top: 1.5em;
 }
 
 .post-list-item {
-    margin-bottom: 30px;
+    margin-bottom: 14px;
+}
+
+.post-list-item a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    text-decoration: none;
 }
 
 .post-list-date {
-    color: rgb(118, 118, 118);
+    color: var(--muted);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
 }
 
 .post-list-title {
+    font-size: var(--text);
     font-weight: 600;
-    font-size: 24px;
+}
+
+.post-list-item a:hover .post-list-title {
+    color: var(--red);
 }
 
 .tag {
@@ -22,7 +36,6 @@
     background-color: #ebedef;
     padding: .25em .4em;
     display: inline-block;
-    padding: .25em .4em;
     font-size: 75%;
     line-height: 1;
     text-align: center;

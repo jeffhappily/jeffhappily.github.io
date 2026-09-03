@@ -1,5 +1,59 @@
 ---
-title: Blog Posts
+home: true
 ---
 
-$partial("templates/archive.html")$
+<div class="home">
+  <section class="home-intro">
+    <h1>jeff cheah</h1>
+    <p>
+      Software engineer in Malaysia. I like programming languages, systems, and
+      figuring out how things actually work.
+    </p>
+
+    <p>
+      I've spent a lot of time with functional programming, type systems and
+      correctness, mostly through Haskell. I've also wandered into type theory,
+      proof assistants, compilers and language design when something catches my
+      attention.
+    </p>
+  </section>
+
+  <section class="home-section">
+    <div class="home-section-head">
+      <h2 class="red">now</h2>
+      <span class="home-section-meta">September 2026</span>
+    </div>
+    <p>
+      I'm building an LLM gateway in Rust as a way to understand AI systems
+      better. I'm also poking at Koka, mostly because its effect system caught
+      my attention, and figuring out what I want to work on next.
+    </p>
+  </section>
+  <section class="home-section">
+    <h2 class="red">things I've worked on</h2>
+    <ul class="thing-list">
+      <li>
+        Financial applications built around Cardano and Plutus in Haskell,
+        including work on transaction tooling and the surrounding open source
+        ecosystem.
+      </li>
+      <li>
+        A token presale platform where I worked across a Rust backend and React
+        frontend, including wallet connections, KYC, fiat onramps and smart
+        account payments.
+      </li>
+      <li>
+        An online betting platform built with Rust, PostgreSQL and React,
+        including payment flows, provably fair games and affiliate systems.
+      </li>
+    </ul>
+  </section>
+
+  <section class="home-section">
+    <h2 class="red"><a href="/notes.html">notes</a></h2>
+    <p class="section-sub">
+      Short writeups on things I've noticed, learned, or been thinking about.
+    </p>
+    $partial("templates/post-list.html")$
+  </section>
+</div>
