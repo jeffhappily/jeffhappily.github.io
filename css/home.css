@@ -14,33 +14,6 @@
   margin-top: 56px;
 }
 
-/* Year list (about page): same row rhythm as the note lists */
-.year-list {
-  list-style: none;
-  margin-top: 1.2em;
-}
-
-.year-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-bottom: 14px;
-}
-
-.year-list .year {
-  font-size: var(--text-sm);
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  flex-shrink: 0;
-  min-width: 48px;
-}
-
-.year-list li > span + span {
-  font-family: Georgia, serif;
-  font-size: var(--text);
-  line-height: 1.65;
-}
-
 .home-section-head {
   display: flex;
   align-items: baseline;
